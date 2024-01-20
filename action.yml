@@ -1,0 +1,35 @@
+name: 🐍 Python Auto Tagging
+description: Automatically generate new tags when version file changes
+author: Sam Morgan & Jorrick Sleijster & ArabCoders
+branding:
+  icon: tag
+  color: blue
+inputs:
+  token:
+    description: Github Token
+    required: true
+  path:
+    description: Path to version file
+    required: true
+  variable:
+    description: Variable name containing version information
+    required: true
+  prefix:
+    description: Prefix to add to the version tag
+    required: false
+  suffix:
+    description: Suffix to add to the version tag
+    required: false
+  execute_entire_path:
+    description: Execute entire path(1) or just the line starting with the variable name(0). Values can be 0 or 1.
+    required: false
+    default: '0'
+  repo_name:
+    description: Repository name If not provided, the repository name will be extracted from the github context.
+    required: false
+outputs:
+  version:
+    description: The version defined in the version file
+runs:
+  using: docker
+  image: Dockerfile
