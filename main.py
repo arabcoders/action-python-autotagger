@@ -17,7 +17,7 @@ def main():
 
         regex = re.compile(regex)
         for line in f.readlines():
-            match = regex.match(line)
+            match = regex.match(line.strip())
             if match:
                 version_tag = match.group(1)
                 break
